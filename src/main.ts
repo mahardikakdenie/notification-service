@@ -14,7 +14,7 @@ async function bootstrap() {
         queueOptions: {
           durable: true,
           arguments: {
-            'x-queue-type': 'quorum', // <- tambahkan ini
+            'x-queue-type': 'quorum',
           },
         },
       },
