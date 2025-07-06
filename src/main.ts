@@ -11,7 +11,7 @@ async function bootstrap() {
         urls: process.env.RABBITMQ_URLS
           ? [process.env.RABBITMQ_URLS]
           : ['amqp://guest:guest@localhost:5672'],
-        queue: process.env.RABBITMQ_QUEUE_CONFIRMATION ?? '',
+        queue: process.env.RABBITMQ_QUEUE_CONFIRMATION ?? 'order.confirmation',
         noAck: false,
         queueOptions: {
           durable: true,
