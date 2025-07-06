@@ -8,8 +8,10 @@ async function bootstrap() {
     {
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://guest:guest@localhost:5672'],
-        queue: 'order.confirmation',
+        urls: process.env.RABBITMQ_URLS
+          ? [process.env.RABBITMQ_URLS]
+          : ['amqp://guest:guest@localhost:5672'],
+        queue: process.env.RABBITMQ_QUEUE_CONFIRMATION ?? '',
         noAck: false,
         queueOptions: {
           durable: true,
